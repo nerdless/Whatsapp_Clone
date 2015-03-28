@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        android:title="@string/search"/>
+    <item android:id="@+id/action_new_chat"
+        android:icon="@android:drawable/stat_notify_chat"
+        app:showAsAction="always"
+        android:title="@string/new_chat" />
+    <item android:id="@+id/action_new_group"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="@string/new_group" />
+    <item android:id="@+id/action_new_broadcast"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="@string/new_broadcast" />
+    <item android:id="@+id/action_status"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="@string/status" />
+    <item android:id="@+id/action_settings"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="@string/settings" />
+</menu>

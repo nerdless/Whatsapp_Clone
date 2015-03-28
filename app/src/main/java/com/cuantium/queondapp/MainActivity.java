@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayUseLogoEnabled(true);
+        //initAdapter();
+        getSupportActionBar().setLogo(R.drawable.icon2  );
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new MainChatsFragment())
@@ -29,8 +35,13 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        //getMenuInflater().inflate(R.menu.main, menu);
+        //return true;
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_chats_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override

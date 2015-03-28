@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_chat">Nuevo Chat</string>
+    <string name="search">Buscar</string>
+    <string name="hello_world">¡Hola Mundo!</string>
+    <string name="new_group">Nuevo grupo</string>
+    <string name="new_broadcast">Nueva difusión</string>
+    <string name="status">Estado</string>
+    <string name="settings">Ajustes</string>
+</resources>
