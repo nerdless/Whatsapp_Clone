@@ -7,4 +7,6 @@
     <string name="new_broadcast">Nueva difusión</string>
     <string name="status">Estado</string>
     <string name="settings">Ajustes</string>
+    <string name="new_contact">Nuevo Contacto</string>
+    <string name="title_activity_new_contact">Nuevo Contacto</string>
 </resources>

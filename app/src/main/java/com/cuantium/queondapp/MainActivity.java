@@ -1,5 +1,6 @@
 package com.cuantium.queondapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -52,8 +53,9 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_new_contact)
+        {
+            startActivity(new Intent(this, NewContactActivity.class ));
         }
 
         return super.onOptionsItemSelected(item);
