@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,25 +13,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 
 public class MainActivity extends ActionBarActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //getSupportActionBar().setDisplayUseLogoEnabled(true);
-        //initAdapter();
         getSupportActionBar().setLogo(R.drawable.icon2  );
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new MainChatsFragment())
                     .commit();
         }
     }
+
+
+
+
 
 
     @Override
@@ -61,8 +74,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
 
 }

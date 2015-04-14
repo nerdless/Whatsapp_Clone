@@ -11,6 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -23,5 +26,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'io.realm:realm-android:0.80.0'
+    compile 'com.jakewharton:butterknife:6.1.0'
 
 }

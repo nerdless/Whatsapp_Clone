@@ -8,6 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.UUID;
+
+import butterknife.ButterKnife;
+import io.realm.Realm;
+
 
 public class NewContactActivity extends ActionBarActivity {
 
@@ -15,6 +20,7 @@ public class NewContactActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
+
     }
 
 
@@ -47,10 +53,21 @@ public class NewContactActivity extends ActionBarActivity {
         final EditText emailField = (EditText) findViewById(R.id.editEmail);
         String email = emailField.getText().toString();
 
-        final EditText feedbackField = (EditText) findViewById(R.id.editPhone);
-        String feedback = feedbackField.getText().toString();
+        final EditText PhoneField = (EditText) findViewById(R.id.editPhone);
+        String phone = PhoneField.getText().toString();
 
         Log.i("myLog","name: "+name);
+
+        Realm realm = Realm.getInstance(getApplicationContext());
+        realm.beginTransaction();
+        User contact = realm.createObject(User.class);
+        contact.setName(name);
+        contact.setPhone_number(phone);
+        realm.commitTransaction();
+
+
         finish();
+
+
     }
 }
