@@ -4,9 +4,6 @@ import java.util.Date;
 
 import io.realm.RealmObject;
 
-/**
- * Created by nerdless on 14/04/2015.
- */
 public class Message extends RealmObject {
     private String content;
     private int chat_id;

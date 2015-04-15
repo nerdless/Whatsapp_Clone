@@ -1,5 +1,6 @@
 package com.cuantium.queondapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -49,7 +50,8 @@ public class MainChatsFragment extends Fragment {
     }
 
     public void loadData() {
-        Realm realm = Realm.getInstance(getActivity());
+        //getActivity().getFilesDir();
+        Realm realm = Realm.getInstance(getActivity(), "Users.realm");
         RealmResults<User> query = realm.where(User.class)
                 .findAll();
         for (User p : query) {

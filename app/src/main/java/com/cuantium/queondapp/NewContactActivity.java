@@ -58,12 +58,13 @@ public class NewContactActivity extends ActionBarActivity {
 
         Log.i("myLog","name: "+name);
 
-        Realm realm = Realm.getInstance(getApplicationContext());
+        Realm realm = Realm.getInstance(getApplicationContext(), "Users.realm");
         realm.beginTransaction();
         User contact = realm.createObject(User.class);
         contact.setName(name);
         contact.setPhone_number(phone);
         realm.commitTransaction();
+
 
 
         finish();
