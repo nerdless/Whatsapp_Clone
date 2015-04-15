@@ -20,6 +20,7 @@ public class User extends RealmObject
     private Date last_time_online;
     private boolean is_online;
 
+
     public String getName() {
         return name;
     }
@@ -46,7 +47,7 @@ public class User extends RealmObject
         return is_online;
     }
 
-    public void setName(String name) {
+    public void     setName(String name) {
         this.name = name;
     }
 
