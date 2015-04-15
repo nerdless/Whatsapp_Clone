@@ -9,4 +9,8 @@
     <string name="settings">Ajustes</string>
     <string name="new_contact">Nuevo Contacto</string>
     <string name="title_activity_new_contact">Nuevo Contacto</string>
+    <string name="tell_friend">Tell a friend</string>
+    <string name="contacts">Contacts</string>
+    <string name="help">Help</string>
+    <string name="title_select_contact_activity">Select Contact</string>
 </resources>

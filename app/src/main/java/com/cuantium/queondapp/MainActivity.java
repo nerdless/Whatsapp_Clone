@@ -71,6 +71,11 @@ public class MainActivity extends ActionBarActivity {
             startActivity(new Intent(this, NewContactActivity.class ));
         }
 
+        if (id == R.id.action_new_chat)
+        {
+            startActivity(new Intent(this, SelectContactActivity.class ));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

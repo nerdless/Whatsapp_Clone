@@ -16,16 +16,15 @@ import butterknife.InjectView;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-/**
- * Created by nerdless on 27/03/2015.
- */
 public class MainChatsFragment extends Fragment {
-    ArrayList<User> users = new ArrayList<>();
-    //mListView = (ListView) findViewById(R.id.userListView);
-    @InjectView(R.id.userListView)
+    ArrayList<Chat> chats = new ArrayList<>();
+    @InjectView(R.id.chatListView)
     ListView mListView;
-    //private ListView mListView;
-    private UserAdapter mAdapter;
+    private ChatAdapter mAdapter;
+
+    //private UserAdapter mAdapter;
+    //@InjectView(R.id.userListView)
+    //ArrayList<User> users = new ArrayList<>();
 
     public MainChatsFragment() {
     }
@@ -38,10 +37,12 @@ public class MainChatsFragment extends Fragment {
         ButterKnife.inject(this,rootView);
 
         loadData();
-        if (users == null)
-            Log.i("myLog", "no hay nada en users");
+        //if (users == null)
+        if (chats == null)
+            Log.i("myLog", "no hay nada en la base");
         else {
-            mAdapter = new UserAdapter(getActivity(), users);
+            //mAdapter = new UserAdapter(getActivity(), users);
+            mAdapter = new ChatAdapter(getActivity(), chats);
             mListView.setAdapter(mAdapter);
         }
 
@@ -51,12 +52,18 @@ public class MainChatsFragment extends Fragment {
 
     public void loadData() {
         //getActivity().getFilesDir();
-        Realm realm = Realm.getInstance(getActivity(), "Users.realm");
-        RealmResults<User> query = realm.where(User.class)
+//        Realm realm = Realm.getInstance(getActivity(), "Users.realm");
+//        RealmResults<User> query = realm.where(User.class)
+//                .findAll();
+//        for (User p : query) {
+//            Log.i("myLog",p.getName()+" esta en loadData");
+//            users.add(p);
+//        }
+        Realm realm = Realm.getInstance(getActivity(), "Chats.realm");
+        RealmResults<Chat> query = realm.where(Chat.class)
                 .findAll();
-        for (User p : query) {
-            Log.i("myLog",p.getName()+" esta en loadData");
-            users.add(p);
+        for (Chat c : query) {
+            chats.add(c);
         }
     }
 
