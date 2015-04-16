@@ -1,6 +1,7 @@
 package com.cuantium.queondapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,14 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 public class SelectContactFragment extends Fragment {
@@ -44,9 +48,35 @@ public class SelectContactFragment extends Fragment {
             mListView.setAdapter(mAdapter);
         }
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+            {
+//                Realm chatsRealm = Realm.getInstance(getActivity(), "Chats.realm");
+//                RealmQuery<Chat> query = chatsRealm.where(Chat.class);
+//
+//                query.equalTo("owner_id", users.get(position).getPhone_number());
+//                RealmResults<Chat> chat = query.findAll();
+
+//                if(chat.size() == 0)
+                String[] user_phone = new String[1];
+                user_phone[0] = users.get(position).getPhone_number();
+                Intent intent = new Intent(getActivity(), ChatActivity.class );
+                intent.putExtra("users_phones", user_phone);
+                startActivity(intent);
+
+//                users.get(position)
+//                Toast.makeText(getActivity(),
+//                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+//                        .show();
+            }
+        });
+
         return rootView;
 
     }
+
+
 
     public void loadData() {
         //getActivity().getFilesDir();
@@ -59,5 +89,7 @@ public class SelectContactFragment extends Fragment {
         }
 
     }
+
+
 
 }
