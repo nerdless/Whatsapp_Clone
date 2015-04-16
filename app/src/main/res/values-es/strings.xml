@@ -13,4 +13,7 @@
     <string name="contacts">Contacts</string>
     <string name="help">Help</string>
     <string name="title_select_contact_activity">Select Contact</string>
+    <string name="attach">Attach File</string>
+    <string name="view_contact">View contact</string>
+    <string name="clear_chat">Clear Conversation</string>
 </resources>

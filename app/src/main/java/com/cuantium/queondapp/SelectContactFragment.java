@@ -52,17 +52,18 @@ public class SelectContactFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-//                Realm chatsRealm = Realm.getInstance(getActivity(), "Chats.realm");
+//                Realm chatsRealm = Realm.getInstance(getActivity(), "Chats.realm");//hacer esto en base Chat_members y cruzar con type
 //                RealmQuery<Chat> query = chatsRealm.where(Chat.class);
 //
 //                query.equalTo("owner_id", users.get(position).getPhone_number());
 //                RealmResults<Chat> chat = query.findAll();
 
 //                if(chat.size() == 0)
-                String[] user_phone = new String[1];
-                user_phone[0] = users.get(position).getPhone_number();
+                String contact_phone;
+                contact_phone = users.get(position).getPhone_number();
                 Intent intent = new Intent(getActivity(), ChatActivity.class );
-                intent.putExtra("users_phones", user_phone);
+                intent.putExtra("contact_phone", contact_phone);
+                intent.putExtra("new_chat",true);
                 startActivity(intent);
 
 //                users.get(position)
