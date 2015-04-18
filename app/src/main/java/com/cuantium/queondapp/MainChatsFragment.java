@@ -1,12 +1,14 @@
 package com.cuantium.queondapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 public class MainChatsFragment extends Fragment {
@@ -45,6 +48,17 @@ public class MainChatsFragment extends Fragment {
             mAdapter = new ChatAdapter(getActivity(), chats);
             mListView.setAdapter(mAdapter);
         }
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+            {
+               chats.get(position).isGroup_chat();
+                if(chats.get(position).isGroup_chat())
+                Log.i("myLog", "es grupal");
+                else
+                Log.i("myLog", "es individual");
+            }
+        });
 
         return rootView;
 

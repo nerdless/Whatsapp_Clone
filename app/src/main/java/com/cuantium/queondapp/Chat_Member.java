@@ -10,10 +10,10 @@ public class Chat_Member extends RealmObject
     private String user_id;
     private Date user_added_date;
     private String user_added_by;
-    private boolean gruoup_chat; //if its true, it is a group conversation, if it is false is an individual conversation
+    private boolean group_chat; //if its true, it is a group conversation, if it is false is an individual conversation
 
-    public void setGruoup_chat(boolean gruoup_chat) {
-        this.gruoup_chat = gruoup_chat;
+    public void setGroup_chat(boolean group_chat) {
+        this.group_chat = group_chat;
     }
 
     public void setChat_id(int chat_id) {
@@ -32,8 +32,8 @@ public class Chat_Member extends RealmObject
         this.user_added_by = user_added_by;
     }
 
-    public boolean isGruoup_chat() {
-        return gruoup_chat;
+    public boolean isGroup_chat() {
+        return group_chat;
     }
 
     public int getChat_id() {

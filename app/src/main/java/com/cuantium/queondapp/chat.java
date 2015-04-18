@@ -14,6 +14,15 @@ public class Chat extends RealmObject {
     private String owner_id;
     private String title;
     private Message last_msg;
+    private boolean group_chat;
+
+    public boolean isGroup_chat() {
+        return group_chat;
+    }
+
+    public void setGroup_chat(boolean group_chat) {
+        this.group_chat = group_chat;
+    }
 
     public Message getLast_msg() {
         return last_msg;

@@ -1,5 +1,6 @@
 package com.cuantium.queondapp;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -9,7 +10,7 @@ public class Message extends RealmObject {
     private int chat_id;
     private Date creation_date;
     private int msg_status;
-    private int msg_id;
+    private String sender_id;
 
     public void setContent(String content) {
         this.content = content;
@@ -27,8 +28,8 @@ public class Message extends RealmObject {
         this.msg_status = msg_status;
     }
 
-    public void setMsg_id(int msg_id) {
-        this.msg_id = msg_id;
+    public void setSender_id(String sender_id) {
+        this.sender_id = sender_id;
     }
 
     public String getContent() {
@@ -47,7 +48,7 @@ public class Message extends RealmObject {
         return msg_status;
     }
 
-    public int getMsg_id() {
-        return msg_id;
+    public String getSender_id() {
+        return sender_id;
     }
 }

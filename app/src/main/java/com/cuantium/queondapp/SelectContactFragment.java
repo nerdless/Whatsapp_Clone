@@ -52,18 +52,26 @@ public class SelectContactFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-//                Realm chatsRealm = Realm.getInstance(getActivity(), "Chats.realm");//hacer esto en base Chat_members y cruzar con type
-//                RealmQuery<Chat> query = chatsRealm.where(Chat.class);
-//
-//                query.equalTo("owner_id", users.get(position).getPhone_number());
-//                RealmResults<Chat> chat = query.findAll();
+                Realm chat_memberRealm = Realm.getInstance(getActivity(), "Chat_members.realm");//hacer esto en base Chat_members y cruzar con type
+                RealmQuery<Chat_Member> query = chat_memberRealm.where(Chat_Member.class);
+                query.equalTo("user_id", users.get(position).getPhone_number());
+                        query.equalTo("group_chat", false);
+                RealmResults<Chat_Member> chat = query.findAll();
 
-//                if(chat.size() == 0)
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
                 String contact_phone;
                 contact_phone = users.get(position).getPhone_number();
-                Intent intent = new Intent(getActivity(), ChatActivity.class );
                 intent.putExtra("contact_phone", contact_phone);
-                intent.putExtra("new_chat",true);
+                if(chat.size() == 0) {
+
+
+                    intent.putExtra("new_chat", true);
+                    Log.i("myLog","este chat no existe");
+                }else
+                {
+                    intent.putExtra("new_chat", false);
+                    Log.i("myLog","este chat ya existe");
+                }
                 startActivity(intent);
 
 //                users.get(position)
